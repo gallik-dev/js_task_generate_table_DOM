@@ -357,4 +357,35 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+// const tr = document.createElement('tr');
+// const th = document.createElement('th');
+// const th1 = document.createElement('th');
+// const dashboard = document.querySelector('.dashboard');
+
+// th.textContent = 'wow';
+// th1.textContent = 'wow1';
+// tr.insertAdjacentElement('afterbegin', th);
+// tr.insertAdjacentElement('afterbegin', th1);
+
+// dashboard.insertAdjacentElement('beforeend', tr);
+const dashboard = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const tr = document.createElement('tr');
+  const thName = document.createElement('th');
+  const thGender = document.createElement('th');
+  const thBorn = document.createElement('th');
+  const thDied = document.createElement('th');
+  const thAge = document.createElement('th');
+  const thCentury = document.createElement('th');
+
+  thName.textContent = person.name;
+  thGender.textContent = person.sex;
+  thBorn.textContent = person.born;
+  thDied.textContent = person.died;
+  thAge.textContent = person.died - person.born;
+  thCentury.textContent = Math.ceil(person.died / 100);
+
+  tr.append(thName, thGender, thBorn, thDied, thAge, thCentury);
+  dashboard.append(tr);
+});
